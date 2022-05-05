@@ -43,8 +43,8 @@ jobs:
            LASTSSH: "Doing something after copying"
         with:
            host: ${{ secrets.HOST }}
-           username: ${{ secrets.USERNAME }}
-           password: ${{ secrets.PASSWORD }}
+           username: ${{ secrets.NAME }}
+           password: ${{ secrets.PASS }}
            port: ${{ secrets.PORT }}
            source: "projection.exe"
            target: "/home/www"
