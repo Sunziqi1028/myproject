@@ -6,12 +6,11 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ master ]
+
 
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  #workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,7 +29,20 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: build programing
         run: |
+          go build -v
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name:Deploy
+        uses: cross-the-world/scp-pipeline@master
+        env:
+          WELCOME:"ssh scp ssh pipeline"
+          LASTSSH:"Doing something after copying"
+        with:
+          host:${{ secrets.USER_HOST }}
+          user:${{ secrets.USER_USER }}
+          pass:${{ secrets.USER_PASS }}
+          connect_timeout:10s
+          local:'./projection.exe'
+          remote:/home/www
