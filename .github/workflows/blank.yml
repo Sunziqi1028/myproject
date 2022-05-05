@@ -34,17 +34,20 @@ jobs:
           go build -v
           echo Add other actions to build,
           echo test, and deploy your project.
-     #
-      - name: scp pipeline
-        uses: cross-the-world/scp-pipeline@master
+
+      - name: SCP Files
+        # You may pin to the exact commit or the version.
+        # uses: appleboy/scp-action@b476d5806f2a4c1ed5902a87fa91b0623cac7258
+        uses: appleboy/scp-action@v0.0.1
+        env:
+           WELCOME: "ssh scp ssh pipeline"
+           LASTSSH: "Doing something after copying"
         with:
-          host: ${{ secrets.HOST }}
-          user: ${{ secrets.USER }}
-          pass: ${{ secrets.PASS }}
-          port: ${{ secrets.PORT }}
-          connect_timeout: 10s
-          local: './projection.exe'
-          remote: /home/www
-          scp: |
-            ./projection.exe => "/home/www"
-      # -----哈哈哈哈哈 ......
+           host: ${{ secrets.HOST }}
+           username: ${{ secrets.NAME }}
+           password: ${{ secrets.PASS }}
+           port: ${{ secrets.PORT }}
+           source: "projection.exe"
+           target: "/home/www"
+      # -----哈哈哈哈哈
+
