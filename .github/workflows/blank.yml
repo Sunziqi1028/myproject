@@ -47,7 +47,7 @@ jobs:
          user: ${{ secrets.USER_NAME }}
          pass: ${{ secrets.USER_PASS }}
          connect_timeout: 10s
-         local: './*'
+         local: '/home/runner/work/myproject/myproject/*'
          remote: /home/www/
       # -----哈哈哈哈哈...
 
