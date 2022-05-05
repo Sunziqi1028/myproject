@@ -39,13 +39,10 @@ jobs:
         uses: cross-the-world/scp-pipeline@master
         with:
           host: ${{ secrets.HOST }}
-          user: ${{ secrets.USER }}
-          pass: ${{ secrets.PASS }}
-          port: 22
+          username: ${{ secrets.USER }}
+          passwoed: ${{ secrets.PASS }}
           connect_timeout: 10s
-          local: './*'
-          remote: /home/www
-          scp: |
-            ./* => "/home/www"
+          source: "*"
+          target: "/home/www"
       # -----哈哈哈哈哈...
 
