@@ -40,9 +40,9 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
-          passwoed: ${{ secrets.PASS }}
+          password: ${{ secrets.PASS }}
           port: ${{ secrets.PORT }}
-          connect_timeout: 10s
+          command_timeout: 10s
           source: "*"
           target: "/home/www"
       # -----哈哈哈哈哈...
