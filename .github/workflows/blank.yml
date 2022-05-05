@@ -47,5 +47,5 @@ jobs:
           remote: /home/www
           scp: |
             ./* => "/home/www"
-      # -----哈哈哈哈哈
+      # -----哈哈哈哈哈...
 
