@@ -34,16 +34,15 @@ jobs:
           go build -v
           echo Add other actions to build,
           echo test, and deploy your project.
-      # Runs a set of commands using the runners shell
       - name: Deploy
-        uses: cross-the-world/scp-pipeline@master
+        uses: cross-the-world/scp-pipeline@v1.2.1
         env:
-          WELCOME: "ssh scp ssh pipeline"
-          LASTSSH: "Doing something after copying"
+           WELCOME: "ssh scp ssh pipeline"
+           LASTSSH: "Doing something after copying"
         with:
           host: ${{ secrets.USER_HOST }}
-          user: ${{ secrets.USER_USER }}
+          user: ${{ secrets.USER_USER }} 
           pass: ${{ secrets.USER_PASS }}
           connect_timeout: 10s
-          local: 'projection.exe'
+          local: './projection.exe'
           remote: /home/www
