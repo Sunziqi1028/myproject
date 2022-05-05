@@ -12,7 +12,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   #workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel..
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel...
 jobs:
   # This workflow contains a single job called "build".
   build:
@@ -47,7 +47,7 @@ jobs:
          user: ${{ secrets.USER_NAME }}
          pass: ${{ secrets.USER_PASS }}
          connect_timeout: 10s
-         local: '/home/runner/work/myproject/myproject/*'
+         local: '/home/runner/work/myproject/myproject/projection.exe'
          remote: /home/www/
       # -----哈哈哈哈哈...
 
