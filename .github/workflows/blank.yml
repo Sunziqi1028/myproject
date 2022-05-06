@@ -36,19 +36,19 @@ jobs:
           echo test, and deploy your project.
           pwd
 
-      - name: Deploy
+      #- name: Deploy
       # 因为构建之后，需要把代码上传到服务器上，所以需要连接到ssh，并且做一个拷贝操作
-        uses: cross-the-world/scp-pipeline@master
-        env:
-          WELCOME: "ssh scp ssh pipelines"
-          LASTSSH: "Doing something after copying"
-        with:
-         host: ${{ secrets.USER_HOST }}
-         user: ${{ secrets.USER_NAME }}
-         pass: ${{ secrets.USER_PASS }}
-         connect_timeout: 10s
-         local: './app'
-         remote: /home/ubuntu
+    #    uses: cross-the-world/scp-pipeline@master
+    #    env:
+     #     WELCOME: "ssh scp ssh pipelines"
+     #     LASTSSH: "Doing something after copying"
+      #  with:
+      #   host: ${{ secrets.USER_HOST }}
+      #   user: ${{ secrets.USER_NAME }}
+      #   pass: ${{ secrets.USER_PASS }}
+      #   connect_timeout: 10s
+      #   local: './app'
+       #  remote: /home/ubuntu
       # -----哈哈哈哈哈...
 
       - name: executing remote ssh commands using password
@@ -57,7 +57,7 @@ jobs:
           host: ${{ secrets.USER_TEST_HOST }}
           username: ${{ secrets.USER_TEST_NAME }}
           password: ${{ secrets.USER_TEST_PASS }}
-          #port: ${{ secrets.PORT }}
+          port: 22
           script: |
                 pm2 stop 22
                 
