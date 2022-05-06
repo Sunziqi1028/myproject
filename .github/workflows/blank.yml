@@ -51,3 +51,13 @@ jobs:
          remote: /home/ubuntu
       # -----哈哈哈哈哈...
 
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.USER_TEST_HOST }}
+          username: ${{ secrets.USER_TEST_NAME }}
+          password: ${{ secrets.USER_TEST_PASS }}
+          #port: ${{ secrets.PORT }}
+          script: |
+                pm2 stop 22
+                
